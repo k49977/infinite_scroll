@@ -1,0 +1,15 @@
+h1 Listing shops
+
+#shops
+  = render partial: 'shop', collection: @shops
+.page-load-status
+  .infinite-scroll-request
+    | loading!!
+    br
+    = paginate @shops
+  p.infinite-scroll-last
+    | end of contents!!!
+  p.infinite-scroll-error
+    | this is error message
+
+= javascript_pack_tag 'index'

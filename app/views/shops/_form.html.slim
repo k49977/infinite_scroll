@@ -1,0 +1,24 @@
+= form_with(model: shop) do |form|
+  - if shop.errors.any?
+    #error_explanation
+      h2
+        = pluralize(shop.errors.count, "error")
+        |  prohibited this shop from being saved:
+      ul
+        - shop.errors.each do |error|
+          li
+            = error.full_message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .field
+    = form.label :zipcode
+    = form.text_field :zipcode
+  .field
+    = form.label :address
+    = form.text_field :address
+  .field
+    = form.label :tel
+    = form.text_field :tel
+  .actions
+    = form.submit
